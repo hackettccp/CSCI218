@@ -23,7 +23,8 @@ for (i in seq(1, 20000)) {
 df <- as.data.frame(p_hats)
 #Plot the histogram w/ standard error
 ggplot(data = df) + geom_histogram(mapping=aes(x=p_hats), fill="skyblue", color="steelblue", alpha=.5, binwidth=0.01)+
-  geom_vline(xintercept=mean(p_hats)) + geom_vline(xintercept=mean(p_hats)+sd(p_hats), linetype="dashed") +geom_vline(xintercept=mean(p_hats)-sd(p_hats), linetype="dashed")
+  geom_vline(xintercept=mean(p_hats)) + geom_vline(xintercept=mean(p_hats)+sd(p_hats), linetype="dashed") +geom_vline(xintercept=mean(p_hats)-sd(p_hats), linetype="dashed")+
+  scale_x_continuous(breaks=seq(0.5,0.9,0.02), limits=c(0.5, 0.9))
 
 #95% confidence interval
 ggplot(data = df) + geom_histogram(mapping=aes(x=p_hats), fill="skyblue", color="steelblue", alpha=.5, binwidth=0.01)+

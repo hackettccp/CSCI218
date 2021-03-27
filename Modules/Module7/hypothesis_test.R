@@ -9,7 +9,7 @@ ratings <- df$Rating
 sampled_ratings <- sample(ratings, size = 1000)
 
 #Total number of 3-star ratings
-three_stars <- sum(sampled_ratings==4)
+three_stars <- sum(sampled_ratings==3)
 
 #Proportion of 3-star ratings
 three_stars_prop <- three_stars / length(sampled_ratings)
@@ -36,7 +36,7 @@ SE <- sqrt(p_0*(1-p_0)/n)
 
 z_score <- (p_hat-p_0)/SE
 
-p_value <- 2*(1-pnorm(z_score))
+p_value <- 1-pnorm(z_score)
 
 #4. Confirm
 #Strong evidence against the null hypothesis
